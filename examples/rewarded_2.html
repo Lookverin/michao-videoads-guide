@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>任意のタイミングで発火するリワード広告の例</title>
+  <meta name="description" content="このページは任意のタイミングで発火し、広告再生終了などの報酬獲得条件を満たした場合に報酬としてコンテンツを表示するリワード広告例です。">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- プレーヤーを読み込む -->
+  <script async src="https://serving.lookverin.com/player/adlook.js"></script>
+</head>
+
+<body>
+  <!-- 動画広告を再生 再生終了またはスキップなどの広告終了で自動的に閉じる -->
+  <script
+    data-playerPro="current">(function () { var s = document.querySelector('script[data-playerPro="current"]'); s.removeAttribute("data-playerPro"); (playerPro = window.playerPro || []).push({ id: "hLeeApZ7hTAr", after: s }); })();</script>
+
+  <div class="max-w-7xl mx-auto py-10">
+    <div class="w-full p-6 rounded-md bg-gray-100 select-none mb-4">
+      <div class="text-gray-400 mb-2">
+        コンテンツ。。。
+        <!-- リワードコンテンツ -->
+        <div id="reward-content" class="hidden">
+          リワードコンテンツだよ！
+        </div>
+      </div>
+      <button type="button" id="more-btn" class="text-gray-600 text-sm underline">もっと見る</button>
+    </div>
+  </div>
+
+  <script>
+    // もっと見るのボタン
+    const moreBtn = document.getElementById('more-btn');
+    const rewardContent = document.getElementById('reward-content');
+
+    /**
+     * もっと見るボタンがクリックされたときの処理を行います。
+     * @param {Event} e - クリックイベント
+     */
+    function handleMoreBtnClick(e) {
+      // もっと見るボタンがクリックされた時点で実行される
+      e.preventDefault();
+      (playerPro=window.playerPro||[]).push({
+        id: 'hLeeApZ7hTAr',
+        init: initMichao
+      });
+    }
+
+    /**
+     * Michaoの初期化を行います。
+     */
+    function initMichao(api) {
+      if (api) {
+        api.on('AdVideoComplete', () => {
+          console.log('動画広告再生終了');
+        });
+      }
+    }
+
+    /**
+     * リワードコンテンツを表示します。
+     */
+    function showRewardContent() {
+      rewardContent.classList.remove('hidden');
+    }
+
+    /**
+     * リワードコンテンツを非表示にします。
+     */
+    function hideRewardContent() {
+      rewardContent.classList.add('hidden');
+    }
+
+
+    function init() {
+      // クリックイベントを登録
+      moreBtn.addEventListener('click', handleMoreBtnClick);
+    }
+  </script>
+</body>
+
+</html>

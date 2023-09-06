@@ -6,6 +6,8 @@
   <title>ページ読み込み時に発火するリワード広告の例</title>
   <meta name="description" content="このページはページ読み込み時に表示され、広告終了時に自動的に格納するリワード広告の例です。">
 
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- プレーヤーを読み込む -->
   <script async src="https://serving.lookverin.com/player/adlook.js"></script>
 </head>
@@ -14,6 +16,8 @@
   <script data-playerPro="current">(function(){var s=document.querySelector('script[data-playerPro="current"]');s.removeAttribute("data-playerPro");(playerPro=window.playerPro||[]).push({id:"hLeeApZ7hTAr",after:s});})();</script>
 
   <!-- リワード報酬 -->
-  <div>リワードコンテンツ。。。</div>
+  <div class="max-w-7xl mx-auto py-10">
+    <div class="w-full p-6 rounded-md bg-gray-100 text-gray-400 select-none">リワードコンテンツ。。。</div>
+  </div>
 </body>
 </html>
