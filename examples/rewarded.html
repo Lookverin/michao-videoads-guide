@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ページ読み込み時に発火するリワード広告の例</title>
+  <meta name="description" content="このページはページ読み込み時に表示され、広告終了時に自動的に格納するリワード広告の例です。">
+
+  <!-- プレーヤーを読み込む -->
+  <script async src="https://serving.lookverin.com/player/adlook.js"></script>
 </head>
 <body>
-  
+  <!-- 動画広告を再生 再生終了またはスキップなどの広告終了で自動的に閉じる -->
+  <script data-playerPro="current">(function(){var s=document.querySelector('script[data-playerPro="current"]');s.removeAttribute("data-playerPro");(playerPro=window.playerPro||[]).push({id:"hLeeApZ7hTAr",after:s});})();</script>
+
+  <!-- リワード報酬 -->
+  <div>リワードコンテンツ。。。</div>
 </body>
 </html>
